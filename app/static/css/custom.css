@@ -1,0 +1,15 @@
+.custom_container{
+    margin-top: 20px;
+}
+
+.btn-warning-custom {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.table-image {
+    td, th {
+      vertical-align: middle;
+    }
+  }

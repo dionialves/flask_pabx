@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block container %}
+    <h5>Lista de Ramais</h5>
+    <hr class="border border-danger">
+    <div class="container">
+        <div class=" row">
+          <a href="{{ url_for('extension_add') }}" class="btn btn-success btn-sm" role="button" aria-pressed="true"><i class="fa fa-plus"></i> Cadastrar</a>
+
+        </div>
+
+       {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="row mt-1">
+              <div class="col-md-12">
+                <div class="alert alert-success" role="alert">
+                  {% for message in messages %}
+                    {{ message }}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <div class="row mt-3">
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Ramal</th>
+                  <th scope="col">Senha</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for obj in object %}
+                    <tr>
+                      <td>{{ obj.name }}</td>
+                      <td>{{ obj.extension }}</td>
+                      <td>{{ obj.password }}</td>
+                      <td>OK (33 ms)</td>
+                      <td>
+                        <a href="{{ url_for('extension', extension_id=obj.id) }}" class="btn btn-info btn-sm">Editar</a>
+                      </td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    </div>
+    
+{% endblock %}z
